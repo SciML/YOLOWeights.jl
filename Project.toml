@@ -1,0 +1,21 @@
+name = "YOLOWeights"
+uuid = "722872b1-c579-4a5e-a0dd-84f351b58b7d"
+authors = ["Chris Rackauckas <chris.rackauckas@juliahub.com> and contributors"]
+version = "0.1.0"
+
+[deps]
+Downloads = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
+SHA = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+Scratch = "6c6a2e73-6563-6170-7368-637461726353"
+
+[compat]
+Downloads = "1"
+SHA = "0.7"
+Scratch = "1.1"
+julia = "1.10"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
