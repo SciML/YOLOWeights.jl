@@ -51,7 +51,7 @@ no NMS required.
 | `yolo26n-obb` | `:obb` | 1024 | 15 (DOTA) | NMS-free `[1, 300, 7]` |
 | `yolov8n-cls` | `:classify` | **640** | 1000 | `[1, 1000]` ImageNet scores |
 | `yolo11n-cls`, `yolo26n-cls` | `:classify` | 224 | 1000 | `[1, 1000]` ImageNet scores |
-| `yolo26n-depth` | `:depth` | 768 | — | monocular depth map `[1, 1, 768, 768]` |
+| `yolo26n-depth` | `:depth` | 768 | — | monocular depth map `[1, 1, 768, 768]`, **metres**, near = small, clamped to 0.0151–122.25 m |
 | `yolo26n-sem` | `:semantic` | 1024 | — | per-pixel map `[1, 1024, 1024]` |
 | `yolo26n-reid` | `:reid` | dynamic | — | 512-d appearance embeddings |
 

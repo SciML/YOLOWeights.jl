@@ -168,7 +168,10 @@ detect + 32 mask coefficients) plus mask protos [1, 32, 160, 160]"),
 ImageNet scores"),
     _ult("yolo26n-depth", "6583ec12521a7e75eacb209db63393158c7e0e772cda9fdad8c8c0fe74af2a1e";
          task = :depth, input = 768, classes = 0, note = "monocular depth map \
-[1, 1, 768, 768]; value scale/units unverified"),
+[1, 1, 768, 768] in METRES, near = small, clamped by the graph to \
+0.0151 .. 122.25 m; the head ends exp(clip(logit, -4, 5) + cal_b) with \
+cal_b = -0.19384765625, and the last node is a 4x Resize, so the prediction is \
+192 x 192 upsampled"),
     _ult("yolo26n-sem", "7b3881f57103a42a14c40737885346f3349fa0387c9a4ecaa3cc348b3c0c4e9d";
          task = :semantic, input = 1024, classes = 0, note = "per-pixel map \
 [1, 1024, 1024]; class vocabulary unverified"),
