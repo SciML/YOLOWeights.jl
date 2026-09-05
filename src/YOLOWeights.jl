@@ -49,7 +49,9 @@ One registry entry. Fields:
   `0` where it does not (depth, semantic, reid).
 - `note::String` — the raw output layout. Everything stated as a shape was
   read from the ONNX graph headers of the hashed files themselves;
-  interpretations that could not be checked that way say "unverified".
+  an interpretation that could only be established by running the model says
+  so, and names what it was run against; one that could not be checked at all
+  says "unverified".
 """
 struct ModelSpec
     file::String
@@ -88,9 +90,17 @@ _yolox(name, sha; input = 640, note) =
 # listed input size).
 const _V8_DETECT = "[1, 84, 8400] channels-first (4 box + 80 class scores per \
 anchor); needs max-over-class, thresholding and NMS"
-const _26_DETECT = "[1, 300, 6] end-to-end, NMS-free: 300 final rows of what \
-reads as box + score + class (column order unverified -- check before wiring \
-into a fused-style decoder)"
+# The one interpretation here that did not come from a graph header: the
+# columns were read off yolo26n running on a live TensorRT 10.16 engine
+# (Jetson AGX Orin) against the Ultralytics bus.jpg, cross-checked against
+# yolov8n on the same input. Corners rather than centres because col0 < col2
+# and col1 < col3 held for all 300 rows; input pixels rather than normalised
+# because the box columns reach 640, the input side.
+const _26_DETECT = "[1, 300, 6] end-to-end, NMS-free: 300 final rows of \
+(x1, y1, x2, y2, score, class), corners in input-resolution pixels, class an \
+integral COCO index, rows sorted by descending score (column order verified \
+against a live engine on bus.jpg, 2026-09-04). Note the head does not \
+deduplicate by IoU: near-identical rows for one object do occur"
 const _YOLOX_DETECT = "[1, A, 85] channels-last (4 box + objectness + 80 class \
 scores); raw per-anchor head -- grid/stride decode required before NMS, see \
 the YOLOX ONNXRuntime demo"
