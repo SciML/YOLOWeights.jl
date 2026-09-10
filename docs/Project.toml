@@ -1,0 +1,6 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+YOLOWeights = "722872b1-c579-4a5e-a0dd-84f351b58b7d"
+
+[compat]
+Documenter = "1"
