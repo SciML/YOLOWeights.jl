@@ -1,5 +1,14 @@
 # YOLOWeights.jl
 
+[![Join the chat at https://julialang.zulipchat.com #sciml-bridged](https://img.shields.io/static/v1?label=Zulip&message=chat&color=9558b2&labelColor=389826)](https://julialang.zulipchat.com/#narrow/stream/279055-sciml-bridged)
+[![Global Docs](https://img.shields.io/badge/docs-SciML-blue.svg)](https://docs.sciml.ai/YOLOWeights/stable/)
+
+[![codecov](https://codecov.io/gh/SciML/YOLOWeights.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/SciML/YOLOWeights.jl)
+[![Build Status](https://github.com/SciML/YOLOWeights.jl/workflows/CI/badge.svg)](https://github.com/SciML/YOLOWeights.jl/actions?query=workflow%3ACI)
+
+[![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor%27s%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
+[![SciML Code Style](https://img.shields.io/static/v1?label=code%20style&message=SciML&color=9558b2&labelColor=389826)](https://github.com/SciML/SciMLStyle)
+
 Pinned, checksummed access to the major pregenerated YOLO detector weights in
 ONNX form — the Ultralytics YOLOv8 / YOLO11 / YOLO26 families and the
 Apache-2.0-licensed YOLOX family.
@@ -23,6 +32,8 @@ that fails verification is an error — upstream changed, do not use it.
 Every hash was computed from a clean download of the official asset, and every
 output shape quoted below was read from the ONNX graph headers of those exact
 files — nothing is copied from model cards.
+
+Full documentation: <https://docs.sciml.ai/YOLOWeights/stable/>
 
 ## Models
 
